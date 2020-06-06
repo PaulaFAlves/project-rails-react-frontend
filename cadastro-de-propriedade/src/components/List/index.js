@@ -28,6 +28,7 @@ class List extends Component {
 		return(
 			<>
 				<NavBar />
+				<button><a href="/create">Incluir propriedade</a></button>
 				{this.state.propriedades.map(propriedade => (
 					<div 
 						className="content"
