@@ -1,0 +1,12 @@
+.content {
+	margin: 20px;
+}
+
+.linhas {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.linhas p {
+	margin: 5px;
+}
