@@ -23,38 +23,35 @@ class List extends Component {
 		this.loadPropriedades();
 	}
 
+	handlePropriedadeSelecionada(id) {
+		localStorage.setItem(id, id)
+	}
+
 
 	render() {
 		return(
 			<>
 				<NavBar />
-				<button><a href="/create">Incluir propriedade</a></button>
-				{this.state.propriedades.map(propriedade => (
-					<div 
-						className="content"
-						key={propriedade.id}>
-						<div className="linhas">	
-							<p>Nome: </p>
-							<p>{propriedade.nome}</p>
+				<div className="button-container">
+					<button className="button"><a href="/create">Incluir propriedade</a></button>
+				</div>
+				<div className="main">
+					{this.state.propriedades.map(propriedade => (
+						<div 
+							className="content"
+							key={propriedade.id}>
+							<div className="linhas">	
+								<p><strong>
+								<a 
+									href='/detail'
+									onClick={() => localStorage.setItem('id', propriedade.id)}>
+									{propriedade.nome}
+								</a></strong></p>
+							</div>
+
 						</div>
-						<div className="linhas">	
-							<p>Espécie: </p>
-							<p>{propriedade.especie}</p>
-						</div>
-						<div className="linhas">	
-							<p>Cultivares: </p>
-							<p>{propriedade.cultivar}</p>
-						</div>
-						<div className="linhas">	
-							<p>Area: </p>
-							<p>{propriedade.area}</p>
-						</div>
-						<div className="linhas">	
-							<p>Unidade: </p>
-							<p>{propriedade.unidade}</p>
-						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</>
 		);
 	}

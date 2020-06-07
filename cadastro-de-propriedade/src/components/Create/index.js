@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import './styles.css';
+
 import NavBar from '../NavBar';
 
 function Create(props) {
@@ -89,7 +91,9 @@ function Create(props) {
 					<input type="text" placeholder="Unidade" value={unidade} onChange={e => setUnidade(e.target.value)} />
 					<button type="submit" onClick={handleSubmit}>Cadastrar</button>
 				</form>
-				<button><a href="/">Voltar</a></button>
+				<div className="button-container">
+					<button className="button"><a href="/">Voltar</a></button>
+				</div>
 			</div>
 		);
 
