@@ -12,7 +12,7 @@ function Create(props) {
 	const [unidade, setUnidade] = useState('')
 	const [especies, setEspecies] = useState([]);
 	const [especieSelecionada, setEspecieSelecionada] = useState('');
-	const [cultivaresSelecionados, setCultivaresSelecionados] = useState('');
+	const [cultivares, setCultivares] = useState('');
 
 	const handleSubmit = (async (e) => {
 		e.preventDefault();
@@ -50,14 +50,17 @@ function Create(props) {
 	}, []);
 
 	useEffect(() => {
+		console.log(especieSelecionada)
 		if (especieSelecionada === '0') {
 			return;
 		}
 		fetch('http://localhost:3001/cultivares')
 		.then(response=> response.json())
 		.then(data => {
-			const cultivares = data;
-			setCultivaresSelecionados(cultivares)
+			const cultivares = data.filter(item => {
+				return item.especie_id === especieSelecionada
+			});	
+			setCultivares(cultivares)	
 		})
 
 	}, [especieSelecionada]);
@@ -67,8 +70,9 @@ function Create(props) {
 		setEspecieSelecionada(especieSelecionada);
 		setEspecie(especieSelecionada);
 	}
-	console.log(cultivaresSelecionados)
-	console.log(especieSelecionada)
+	console.log(cultivares)
+	console.log(especies)
+
 
 		return(
 			<div>
@@ -86,16 +90,16 @@ function Create(props) {
 								<option key={especie.id} value={especie.id}>{especie.nome}</option>
 							))}
 						</select>
-		
+					
 						<input type="text" placeholder="Cultivar" value={cultivar} onChange={e => setCultivar(e.target.value)}/>
 						<input type="text" placeholder="Area" value={area} onChange={e => setArea(e.target.value)} />
 						<input type="text" placeholder="Unidade" value={unidade} onChange={e => setUnidade(e.target.value)} />
 					</form>
 				</div>
-					<div className="button-container">
-						<button className="button"><a href="/">Voltar</a></button>
-						<button className="button" type="submit" onClick={handleSubmit}>Cadastrar</button>
-					</div>
+				<div className="button-container">
+					<button className="button"><a href="/">Voltar</a></button>
+					<button className="button" type="submit" onClick={handleSubmit}>Cadastrar</button>
+				</div>
 			</div>
 		);
 
