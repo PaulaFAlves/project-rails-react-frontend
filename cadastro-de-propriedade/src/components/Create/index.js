@@ -8,7 +8,7 @@ function Create(props) {
 	const [nome, setNome] = useState('')
 	const [especie, setEspecie] = useState('')
 	const [cultivar, setCultivar] = useState('')
-	const [area, setArea] = useState(0)
+	const [area, setArea] = useState('')
 	const [unidade, setUnidade] = useState('')
 	const [especies, setEspecies] = useState([]);
 	const [especieSelecionada, setEspecieSelecionada] = useState('');
@@ -73,27 +73,29 @@ function Create(props) {
 		return(
 			<div>
 				<NavBar />
-				<form>
-					<input type="text" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)}/>
-					<select 
-						name="especie" 
-						id="especie" 
-						value={especie.id} 
-						onChange={handleSelectedEspecie}>
-						<option value="0">Selecione uma especie</option>
-						{especies.map(especie => (
-							<option key={especie.id} value={especie.id}>{especie.nome}</option>
-						))}
-					</select>
-	
-					<input type="text" placeholder="Cultivar" value={cultivar} onChange={e => setCultivar(e.target.value)}/>
-					<input type="text" placeholder="Area" value={area} onChange={e => setArea(e.target.value)} />
-					<input type="text" placeholder="Unidade" value={unidade} onChange={e => setUnidade(e.target.value)} />
-					<button type="submit" onClick={handleSubmit}>Cadastrar</button>
-				</form>
-				<div className="button-container">
-					<button className="button"><a href="/">Voltar</a></button>
+				<div className="formulario-main">
+					<form className="formulario-inclusao">
+						<input type="text" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)}/>
+						<select 
+							name="especie" 
+							id="especie" 
+							value={especie.id} 
+							onChange={handleSelectedEspecie}>
+							<option value="0">Selecione uma especie</option>
+							{especies.map(especie => (
+								<option key={especie.id} value={especie.id}>{especie.nome}</option>
+							))}
+						</select>
+		
+						<input type="text" placeholder="Cultivar" value={cultivar} onChange={e => setCultivar(e.target.value)}/>
+						<input type="text" placeholder="Area" value={area} onChange={e => setArea(e.target.value)} />
+						<input type="text" placeholder="Unidade" value={unidade} onChange={e => setUnidade(e.target.value)} />
+					</form>
 				</div>
+					<div className="button-container">
+						<button className="button"><a href="/">Voltar</a></button>
+						<button className="button" type="submit" onClick={handleSubmit}>Cadastrar</button>
+					</div>
 			</div>
 		);
 
