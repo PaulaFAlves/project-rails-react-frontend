@@ -1,7 +1,8 @@
 .formulario-main {
 	width: 600px;
 	height: auto;
-	margin: auto;
+	margin: 50px auto;
+	border: 1px solid #E8E8E8;
 }
 .formulario-inclusao {
 	display: grid !important;
@@ -28,24 +29,5 @@
 .formulario-inclusao input, .formulario-inclusao select {
 	margin: 10px 0;
 }
-.button-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.button {
-	border: 0;
-	border-radius: 5px;
-	width: 200px;
-	height: 40px;
-	background-color: #104E8B;
-	margin: 20px 0;
-	color: #F8F8FF;
-	text-decoration: none;
-	font-size: 15px;
-}
-.button:hover {
-	background-color: #104E8B;
-	opacity: 0.8;
-	cursor: pointer;	
-}
+
+

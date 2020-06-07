@@ -38,6 +38,8 @@ function Create(props) {
 		setCultivar('');
 		setArea('');
 		setUnidade('');
+		(window.alert('Cadastrado concluído com sucesso.'))
+		window.history.back();
 	});
 		
 	useEffect(() => {

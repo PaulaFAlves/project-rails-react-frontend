@@ -28,45 +28,48 @@ class Detail extends Component {
 	async deletarPropriedade(e) {
 		e.preventDefault();
 		const id = localStorage.getItem('id');
-		if (window.confirm(`Are you sure you want to delete?`)) {
+		if (window.confirm(`Tem certeza que deseja exluir?`)) {
 			await fetch(`http://localhost:3001/propriedades/${id}`, { method: 'DELETE'});
 			
 		}
+		window.history.back();
 	}
-
-
 
 	render() {
 		return(
 			<>
 				<NavBar />
-				<div className="main">	
+				<div className="detail-main">	
 						<div className="content">
 							<div className="linhas">	
-								<p>Nome: </p>
-								<p className="linhas-nome"><strong>{this.state.propriedades.nome}</strong></p>
+								<span>Nome: </span>
+								<span className="linhas-nome"><strong>{this.state.propriedades.nome}</strong></span>
+								<hr color="#E8E8E8"/>
 							</div>
 							<div className="linhas">	
-								<p>Espécie: </p>
-								<p>{this.state.propriedades.especie}</p>
+								<span>Espécie: </span>
+								<span>{this.state.propriedades.especie}</span>
+								<hr color="#E8E8E8"/>
 							</div>
 							<div className="linhas">	
-								<p>Cultivares: </p>
-								<p>{this.state.propriedades.cultivar}</p>
+								<span>Cultivares: </span>
+								<span>{this.state.propriedades.cultivar}</span>
+								<hr color="#E8E8E8"/>
 							</div>
 							<div className="linhas">	
-								<p>Area: </p>
-								<p>{this.state.propriedades.area}</p>
+								<span>Area: </span>
+								<span>{this.state.propriedades.area}</span>
+								<hr color="#E8E8E8"/>
 							</div>
 							<div className="linhas">	
-								<p>Unidade: </p>
-								<p>{this.state.propriedades.unidade}</p>
+								<span>Unidade: </span>
+								<span>{this.state.propriedades.unidade}</span>
 							</div>
 						</div>		
 				</div>
 				<div className="button-container">
 					<button className="button"><a href="/">Voltar</a></button>
-					<button className="button" onClick={this.deletarPropriedade}>Excluir</button>
+					<button className="button" onClick={this.deletarPropriedade}><a href="#">Excluir</a></button>
 				</div>
 			</>
 		);

@@ -33,20 +33,21 @@ class List extends Component {
 			<>
 				<NavBar />
 				<div className="button-container">
-					<button className="button"><a href="/create">Incluir propriedade</a></button>
+					<button className="button"><a href="/create">Incluir Propriedade</a></button>
 				</div>
-				<div className="main">
+				<div className="list-main">
 					{this.state.propriedades.map(propriedade => (
 						<div 
 							className="content"
 							key={propriedade.id}>
-							<div className="linhas">	
+							<div className="list-linhas">	
 								<p><strong>
 								<a 
 									href='/detail'
 									onClick={() => localStorage.setItem('id', propriedade.id)}>
 									{propriedade.nome}
 								</a></strong></p>
+								<hr color="#E8E8E8"/>
 							</div>
 
 						</div>

@@ -4,3 +4,28 @@
 	box-sizing: border-box;
 	font-family: 'Nunito', sans-serif;
 }
+.button-container {
+	display: flex;
+	justify-content: center ;
+	align-items: center;
+}
+.button {
+	background-color: transparent;
+	box-shadow: 0;
+	border: 0;
+	width: 150px;
+	height: 30px;
+	margin: 20px !important;
+}
+.button:hover {
+	cursor: pointer;
+	font-weight: 600;
+}
+.button a, .button {
+	color: #104E88;
+	text-decoration: none;
+	font-size: 15px;
+}
+.button a:hover {
+	font-weight: 600;
+}
