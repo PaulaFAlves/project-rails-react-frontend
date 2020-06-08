@@ -19,7 +19,7 @@
 .formulario-inclusao input:hover {
 	background-color: #F5F5F5;
 }
-#especie {
+#especie, #cultivar{
 	height: 30px; 
 	font-size: 15px;
 	padding: 0 20px;

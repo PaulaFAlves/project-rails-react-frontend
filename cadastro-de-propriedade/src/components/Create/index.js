@@ -13,6 +13,7 @@ function Create(props) {
 	const [especies, setEspecies] = useState([]);
 	const [especieSelecionada, setEspecieSelecionada] = useState('');
 	const [cultivares, setCultivares] = useState('');
+	const [cultivarSelecionada, setCultivarSelecionada] = useState('');
 
 	const handleSubmit = (async (e) => {
 		e.preventDefault();
@@ -72,6 +73,13 @@ function Create(props) {
 		setEspecieSelecionada(especieSelecionada);
 		setEspecie(especieSelecionada);
 	}
+
+	function handleCultivarSelecionada(e) {
+		const cultivarSelecionada = e.target.value;
+		setCultivarSelecionada(cultivarSelecionada);
+		setCultivar(cultivarSelecionada);
+
+	}
 	console.log(cultivares)
 	console.log(especies)
 
@@ -92,8 +100,15 @@ function Create(props) {
 								<option key={especie.id} value={especie.id}>{especie.nome}</option>
 							))}
 						</select>
-					
-						<input type="text" placeholder="Cultivar" value={cultivar} onChange={e => setCultivar(e.target.value)}/>
+						<select 
+							name="cultivar" 
+							id="cultivar"
+							value={cultivar}
+							onChange={handleCultivarSelecionada}>
+							<option value="0">Selecione uma cultivar</option>
+							<option value="Opcao 1">Opcao 1</option>
+							<option value="Opcao 2">Opcao 2</option>
+						</select>
 						<input type="text" placeholder="Area" value={area} onChange={e => setArea(e.target.value)} />
 						<input type="text" placeholder="Unidade" value={unidade} onChange={e => setUnidade(e.target.value)} />
 					</form>

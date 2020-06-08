@@ -69,7 +69,7 @@ class Detail extends Component {
 				</div>
 				<div className="button-container">
 					<button className="button"><a href="/">Voltar</a></button>
-					<button className="button" onClick={this.deletarPropriedade}><a href="#">Excluir</a></button>
+					<button className="button" onClick={this.deletarPropriedade}><a href="">Excluir</a></button>
 				</div>
 			</>
 		);
