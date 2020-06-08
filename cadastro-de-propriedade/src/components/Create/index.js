@@ -12,7 +12,7 @@ function Create(props) {
 	const [unidade, setUnidade] = useState('')
 	const [especies, setEspecies] = useState([]);
 	const [especieSelecionada, setEspecieSelecionada] = useState('');
-	const [cultivares, setCultivares] = useState('');
+	const [cultivares, setCultivares] = useState([]);
 	const [cultivarSelecionada, setCultivarSelecionada] = useState('');
 
 	const handleSubmit = (async (e) => {
@@ -68,7 +68,7 @@ function Create(props) {
 
 	}, [especieSelecionada]);
 
-	function handleSelectedEspecie(e) {
+	function handleEspecieSelecionada(e) {
 		const especieSelecionada = e.target.value;
 		setEspecieSelecionada(especieSelecionada);
 		setEspecie(especieSelecionada);
@@ -78,7 +78,11 @@ function Create(props) {
 		const cultivarSelecionada = e.target.value;
 		setCultivarSelecionada(cultivarSelecionada);
 		setCultivar(cultivarSelecionada);
+	}
 
+	function handleUnidadeSelecionada(e) {
+		const unidadeSelecionada = e.target.value;
+		setUnidade(unidadeSelecionada);
 	}
 	console.log(cultivares)
 	console.log(especies)
@@ -87,30 +91,46 @@ function Create(props) {
 		return(
 			<div>
 				<NavBar />
+				<h1 className="main-title">Incluir Cadastro</h1>
 				<div className="formulario-main">
 					<form className="formulario-inclusao">
-						<input type="text" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)}/>
+						<label htmlFor="nome">Nome da Propriedade:</label>
+						<input id="nome" type="text" value={nome} onChange={e => setNome(e.target.value)}/>
+						<label htmlFor="especie">Selecione uma espécie:</label>
 						<select 
 							name="especie" 
 							id="especie" 
 							value={especie.id} 
-							onChange={handleSelectedEspecie}>
-							<option value="0">Selecione uma especie</option>
+							onChange={handleEspecieSelecionada}>
+							<option value="0"></option>
 							{especies.map(especie => (
 								<option key={especie.id} value={especie.id}>{especie.nome}</option>
 							))}
 						</select>
+						<label htmlFor="cultivar">Selecione uma cultivar:</label>
 						<select 
 							name="cultivar" 
 							id="cultivar"
 							value={cultivar}
 							onChange={handleCultivarSelecionada}>
-							<option value="0">Selecione uma cultivar</option>
-							<option value="Opcao 1">Opcao 1</option>
-							<option value="Opcao 2">Opcao 2</option>
+							<option value="0"></option>
+							{cultivares.map(item => (
+								<option key={item.id} value={item.id}>{item.nome}</option>
+							))}
+						
 						</select>
-						<input type="text" placeholder="Area" value={area} onChange={e => setArea(e.target.value)} />
-						<input type="text" placeholder="Unidade" value={unidade} onChange={e => setUnidade(e.target.value)} />
+						<label htmlFor="area">Área da propriedade:</label>						
+						<input id="area" type="text" value={area} onChange={e => setArea(e.target.value)} />
+						<label htmlFor="unidade">Selecione a unidade de medida:</label>
+						<select 
+							name="unidade" 
+							id="unidade"
+							value={unidade}
+							onChange={handleUnidadeSelecionada}>
+							<option value=""></option>
+							<option value="mt2">mt2</option>
+							<option value="ha">ha</option>
+						</select>
 					</form>
 				</div>
 				<div className="button-container">

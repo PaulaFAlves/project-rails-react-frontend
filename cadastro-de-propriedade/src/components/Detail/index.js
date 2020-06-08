@@ -39,6 +39,7 @@ class Detail extends Component {
 		return(
 			<>
 				<NavBar />
+				<h1 className="main-title">Detalhes da Propriedade</h1>
 				<div className="detail-main">	
 						<div className="content">
 							<div className="linhas">	

@@ -1,31 +1,44 @@
 .formulario-main {
 	width: 600px;
 	height: auto;
-	margin: 50px auto;
+	margin: 10px auto;
+	margin-bottom: 10px;
 	border: 1px solid #E8E8E8;
 }
 .formulario-inclusao {
 	display: grid !important;
 	margin: 20px;
 }
-.formulario-inclusao input {
+.formulario-inclusao input, .formulario-inclusao label {
 	height: 30px;
-	padding: 0 20px;
+	padding: 5px 5px;
 	font-size: 15px;
 	border-radius: 5px;
 	border: 0;
 	outline: none;
-}
-.formulario-inclusao input:hover {
 	background-color: #F5F5F5;
 }
-#especie, #cultivar{
+.formulario-inclusao label {
+	background-color: transparent;
+	padding: 5px 0px;
+	color: #8B8989;
+}
+#especie, #cultivar, #unidade {
 	height: 30px; 
 	font-size: 15px;
 	padding: 0 20px;
 	border: 0;
-	
+	color: #1C1C1C;
 }
+#especie:focus, #cultivar:focus, #unidade:focus {
+	outline: none;
+}
+
+
+.option-text {
+	color: red;
+}
+
 .formulario-inclusao input, .formulario-inclusao select {
 	margin: 10px 0;
 }

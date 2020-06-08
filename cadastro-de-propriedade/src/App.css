@@ -4,6 +4,12 @@
 	box-sizing: border-box;
 	font-family: 'Nunito', sans-serif;
 }
+.main-title {
+	font-size: 15px;	
+	text-align: center;
+	margin-top: 10px;
+	color: #104E88;
+}
 .button-container {
 	display: flex;
 	justify-content: center ;
@@ -15,7 +21,7 @@
 	border: 0;
 	width: 150px;
 	height: 30px;
-	margin: 20px !important;
+	margin: 10px !important;
 }
 .button:hover {
 	cursor: pointer;
