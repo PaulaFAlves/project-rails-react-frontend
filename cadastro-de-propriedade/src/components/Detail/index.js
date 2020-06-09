@@ -18,16 +18,24 @@ class Detail extends Component {
 		const id = localStorage.getItem('id');
 		let response = await fetch(`http://localhost:3001/propriedades/${id}`);
 		const propriedades = await response.json();
-		this.setState({ propriedades: propriedades });
-		const especie = await this.loadEspecies(propriedades.especie);
-		especie.map(especie => {
-			this.setState({
-				propriedades: {
-					...propriedades,
-					especie: especie.nome
-				}
-			})
+		let especie = await this.loadEspecies(propriedades.especie);
+		especie = especie.map(especie => {
+			return especie.nome;
 		})
+		let cultivar = await this.loadCultivares(propriedades.cultivar);
+		cultivar = cultivar.map(cultivar => {
+			return cultivar.nome;
+		})
+		this.setState({ 
+			propriedades: 
+			{
+				nome: propriedades.nome,
+				especie: especie,
+				cultivar: cultivar,
+				area: propriedades.area,
+				unidade: propriedades.unidade,
+			} 
+		});
 	}
 
 	componentDidMount() {
@@ -48,10 +56,20 @@ class Detail extends Component {
 		const converteEspecie = Number(especie)
 		let response = await fetch('http://localhost:3001/especies');
 		const especies = await response.json();
-		const n = especies.filter(especie => {
+		const resultado = especies.filter(especie => {
 			return especie.id === converteEspecie
 		})
-		return n	
+		return resultado	
+	}
+
+	async loadCultivares(cultivar) {
+		const converteCultivar = Number(cultivar)
+		let response = await fetch('http://localhost:3001/cultivares');
+		const cultivares = await response.json();
+		const resultado = cultivares.filter(cultivar => {
+			return cultivar.id === converteCultivar
+		})
+		return resultado	
 	}
 
 	render() {

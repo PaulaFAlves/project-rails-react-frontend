@@ -84,9 +84,6 @@ function Create(props) {
 		const unidadeSelecionada = e.target.value;
 		setUnidade(unidadeSelecionada);
 	}
-	console.log(cultivares)
-	console.log(especies)
-
 
 		return(
 			<div>

@@ -14,9 +14,9 @@ class List extends Component {
 
 	async loadPropriedades() {
 		let response = await fetch('http://localhost:3001/propriedades');
-		const propriedades = await response.json();
+		let propriedades = await response.json();
+		propriedades = propriedades.sort();
 		this.setState({ propriedades: propriedades });
-		console.log(propriedades);
 	}
 
 	componentDidMount() {
