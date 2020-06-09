@@ -19,6 +19,15 @@ class Detail extends Component {
 		let response = await fetch(`http://localhost:3001/propriedades/${id}`);
 		const propriedades = await response.json();
 		this.setState({ propriedades: propriedades });
+		const especie = await this.loadEspecies(propriedades.especie);
+		especie.map(especie => {
+			this.setState({
+				propriedades: {
+					...propriedades,
+					especie: especie.nome
+				}
+			})
+		})
 	}
 
 	componentDidMount() {
@@ -33,6 +42,16 @@ class Detail extends Component {
 			
 		}
 		window.history.back();
+	}
+
+	async loadEspecies(especie) {
+		const converteEspecie = Number(especie)
+		let response = await fetch('http://localhost:3001/especies');
+		const especies = await response.json();
+		const n = especies.filter(especie => {
+			return especie.id === converteEspecie
+		})
+		return n	
 	}
 
 	render() {

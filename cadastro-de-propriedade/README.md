@@ -13,22 +13,22 @@ Este projeto foi desenvolvido utilizando as seguinte tecnologias:
 ### MOCKUPS DE INTERFACE
 
 * Tela Principal
-![Tela Principal](/assets/mockup-principal.png)
+![Tela Principal](/mockups/mockup-principal.png)
 
 * Tela de Cadastro de Propriedade
-![Tela de Cadastro de Propriedade](/assets/mockup-cadastro-propriedade.png)
+![Tela de Cadastro de Propriedade](/mockups/mockup-cadastro-propriedade.png)
 
 * Tela de Cadastro - detalhe opcão de cultivares conforme espécie cadastrada
-![Tela de Cadastro Detalhe](/assets/mockup-cadastro-detalhe.png)
+![Tela de Cadastro Detalhe](/mockup-cadastro-detalhe.png)
 
 * Tela de confirmação de Cadastro
-![Tela de confirmacao de Cadastro](/assets/mockup-incluir-cadastro-sucesso.png)
+![Tela de confirmacao de Cadastro](/mockups/mockup-incluir-cadastro-sucesso.png)
 
 * Tela de detalhes da Propriedade
-![Tela de detalhes da Propriedade](/assets/mockup-detalhe-propriedade.png)
+![Tela de detalhes da Propriedade](/mockups/mockup-detalhe-propriedade.png)
 
 * Tela de confirmação de exclusão da Propriedade
-![Tela de confirmação de exclusão da Propriedade](/assets/mockup-excluir-propriedade.png)
+![Tela de confirmação de exclusão da Propriedade](/mockups/mockup-excluir-propriedade.png)
 
 ### INSTRUCOES PARA USO
 
